@@ -2,6 +2,7 @@ package gianni.benjamin.server.twitter;
 
 import gianni.benjamin.model.Tweet;
 import gianni.benjamin.server.MyProperties;
+import gianni.benjamin.server.Topic;
 import twitter4j.FilterQuery;
 import twitter4j.StallWarning;
 import twitter4j.Status;
@@ -17,6 +18,9 @@ public class Stream {
     }
 
     public static void Listen(String hashtag) {
+
+        Topic topic = new Topic(hashtag);
+
         ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.setOAuthConsumerKey(MyProperties.getProperty("ConsumerKey"))
                 .setOAuthConsumerSecret(MyProperties.getProperty("ConsumerSecret"))
@@ -37,7 +41,8 @@ public class Stream {
                             status.getHashtagEntities(), status.getText(), status.getRetweetCount(), status.getCreatedAt());
                     if (tmp.getHashtags().size() > 0) {
                         // Send this to topic
-                        System.out.println(tmp);
+                        //System.out.println(tmp);
+                        topic.sendMessage(tmp.toString());
                     }
                     else {
                         System.out.println("@@@"+tmp);

@@ -2,6 +2,7 @@ package gianni.benjamin.client;
 
 import java.util.*;
 
+import gianni.benjamin.server.twitter.Stream;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -15,6 +16,8 @@ public class Listener {
 
         Consumer<Long, String> consumer = new KConsumer().createConsumer(hashtagListener);
         final int giveUp = 100;   int noRecordsCount = 0;
+
+        new Stream().Listen(hashtagListener);
 
         while (true) {
             final ConsumerRecords<Long, String> consumerRecords =

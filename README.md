@@ -33,7 +33,7 @@ Consumer Record:(Tweet [user=Dell Sacco, geoLocation=, hashtags=#MMA #NFL #NBA #
 #MMA #NFL #NBA #PrizeFighting #SportsPodcast…, retweetCount=0, createdAt=Sun May 02 17:01:16 EDT 2021], 2)
 ```
 
-### How you can tell it is really working through Kafka
+### Listen to a Previously Created Topic Directly via Kafka
 ```shell
 hdadmin@hdserver:/usr/local/hadoop/kafka_2.12-2.8.0$ bin/kafka-console-consumer.sh --topic NFL --from-beginning --bootstrap-server localhost:9092
 Tweet [user=Charlie Parent, geoLocation=, hashtags=#NFL #NFLDraft , message=RT @PTSTNews: Our #NFL reporter @mjhurleysports interviewed some of the top prospects in the 2021 #NFLDraft after they were selected in Cle…, retweetCount=0, createdAt=Sun May 02 17:01:04 EDT 2021]
@@ -43,5 +43,9 @@ https://t.co/e7PcFXdFzm, retweetCount=0, createdAt=Sun May 02 17:01:13 EDT 2021]
 Tweet [user=Dell Sacco, geoLocation=, hashtags=#MMA #NFL #NBA #PrizeFighting #SportsPodcast , message=RT @JTT81: Check out our podcast, That Other Sports Show, on @anchor! 
 @zedlaV559 @TeamTOSS21 
 #MMA #NFL #NBA #PrizeFighting #SportsPodcast…, retweetCount=0, createdAt=Sun May 02 17:01:16 EDT 2021]
-
 ```
+
+#### Feeling Political? 
+```
+mvn -P politics
+``` 

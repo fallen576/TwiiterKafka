@@ -43,7 +43,7 @@
       </build>
     </profile>
     <profile>
-      <id>tweet</id>
+      <id>politics</id>
       <build>
         <defaultGoal>test</defaultGoal>
         <plugins>
